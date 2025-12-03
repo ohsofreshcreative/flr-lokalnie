@@ -1,0 +1,58 @@
+@import "tailwindcss" theme(static);
+
+@source "../views/";
+@source "../../app/";
+
+@import "../css/variables.scss";
+
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
+/*-- USED ---*/
+@import '../css/blocks/hero.scss';
+@import '../css/blocks/counter.scss';
+@import '../css/blocks/home-about.scss';
+@import '../css/blocks/cards.scss';
+@import '../css/blocks/text.scss';
+@import '../css/blocks/experts.scss';
+@import '../css/blocks/partners-block.scss';
+@import '../css/blocks/hero-sub.scss';
+@import '../css/blocks/bottom-block.scss';
+@import '../css/blocks/text-image.scss';
+@import '../css/blocks/two-columns.scss';
+@import '../css/blocks/numbers.scss';
+@import '../css/blocks/invitation.scss';
+@import '../css/blocks/speakers.scss';
+@import '../css/blocks/hero-bg.scss';
+@import '../css/blocks/table.scss';
+@import '../css/blocks/text-text.scss';
+@import '../css/blocks/info.scss';
+@import '../css/blocks/gallery.scss';
+@import '../css/blocks/connect.scss';
+@import '../css/blocks/contact.scss';
+@import '../css/blocks/duo.scss';
+@import '../css/blocks/tailored.scss';
+@import '../css/blocks/workshops.scss';
+@import '../css/blocks/reach.scss';
+@import '../css/blocks/text-tiles.scss';
+@import '../css/blocks/tiles.scss';
+
+
+/*-- NOT USED --*/
+@import '../css/blocks/hero-offer.scss';
+
+@import '../css/blocks/text-image.scss';
+@import '../css/blocks/opinion.scss';
+@import '../css/blocks/area-block.scss';
+@import '../css/blocks/offer-cards-block.scss';
+@import '../css/blocks/cases.scss';
+@import '../css/blocks/reviews.scss';
+@import '../css/blocks/offer.scss';
+@import '../css/blocks/history.scss';
+@import '../css/blocks/category-posts.scss';
+@import '../css/blocks/accordion.scss';
+@import '../css/blocks/cases-slider.scss';
+@import '../css/blocks/proces.scss';
+@import '../css/blocks/steps.scss';
+@import '../css/blocks/path.scss';

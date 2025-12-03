@@ -1,0 +1,43 @@
+{
+  "editor.deps.json": {
+    "file": "assets/editor.deps-DxpY22xl.json",
+    "src": "editor.deps.json"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-C16-Hee8.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "name": "app",
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/css/editor.css": {
+    "file": "assets/editor-Do8_LOlH.css",
+    "src": "resources/css/editor.css",
+    "isEntry": true,
+    "name": "editor",
+    "names": [
+      "editor.css"
+    ]
+  },
+  "resources/images/ohsofresh.svg": {
+    "file": "assets/ohsofresh-DBDLJZzV.svg",
+    "src": "resources/images/ohsofresh.svg"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-DSjQZJHs.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app-2D5RCnEX.css"
+    ]
+  },
+  "resources/js/editor.js": {
+    "file": "assets/editor-CfU4GbSP.js",
+    "name": "editor",
+    "src": "resources/js/editor.js",
+    "isEntry": true
+  }
+}

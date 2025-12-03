@@ -1,0 +1,106 @@
+.b-reach {
+
+  .__phone {
+    display: flex;
+    transition: all 0.5s ease-out;
+  }
+
+  .__phone:hover {
+    color: var(--s-300) !important;
+    transition: all 0.5s ease-out;
+  }
+
+  .__phone::before {
+    content: url('/wp-content/uploads/2025/11/phone.svg');
+    margin-right: 16px;
+    position: relative;
+    top: 4px;
+    max-width: 40px;
+  }
+
+  .__mail {
+    display: flex;
+    transition: all 0.5s ease-out;
+  }
+
+  .__mail:hover {
+    color: var(--s-300) !important;
+    transition: all 0.5s ease-out;
+  }
+
+  .__mail::before {
+    content: url('/wp-content/uploads/2025/11/mail.svg');
+    margin-right: 16px;
+    position: relative;
+    top: 2px;
+    max-width: 40px;
+  }
+  
+  .__address {
+  }
+  input[type='text'],
+  input[type='email'],
+  input[type='number'],
+  input[type='tel'],
+  textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    padding: 10px 22px;
+    border: none;
+    border: 1px solid var(--s-300);
+    background: transparent;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 400;
+    line-height: 30px;
+    border-radius: 8px;
+    transition: all 0.5s ease-out;
+  }
+
+
+  input[type='text']:hover,
+  input[type='email']:hover,
+  input[type='number']:hover,
+  input[type='tel']:hover,
+  textarea:hover,
+  input[type='text']:focus,
+  input[type='email']:focus,
+  input[type='number']:focus,
+  input[type='tel']:focus,
+  textarea:focus{
+    border: 1px solid var(--s-800);
+    transition: all 0.5s ease-out;
+	background-color: var(--p-800);
+  }
+
+
+  ::placeholder {
+	color:var(--s-900);
+  }
+
+  input[type='submit'] {
+    font-family: var(--btns-font);
+    font-size: var(--btns-fontsize);
+    background: var(--secondary) !important;
+    color: #fff;
+    padding: var(--btns-padding);
+    display: inline-block;
+    transition: all 0.2s ease-out;
+    font-weight: 600;
+    border: 1px solid transparent;
+    border-radius: var(--btns-radius);
+    text-decoration: none;
+    white-space: nowrap;
+    width: max-content;
+    cursor: pointer;
+  }
+
+  input[type='submit']:hover {
+    background: var(--s-hover) !important;
+    color: #fff;
+    transition: all 0.2s ease-out;
+    border: 1px solid transparent;
+  }
+}

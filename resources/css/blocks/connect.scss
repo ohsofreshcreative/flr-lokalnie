@@ -1,0 +1,34 @@
+.b-connect {
+  .__phone {
+    display: flex;
+    transition: all 0.5s ease-out;
+  }
+
+  .__phone:hover {
+    color: var(--s-300) !important;
+    transition: all 0.5s ease-out;
+  }
+
+  .__phone::before {
+    content: url('/wp-content/uploads/2025/11/phone.svg');
+    margin-right: 12px;
+    position: relative;
+    top: 4px;
+  }
+
+  .__mail {
+    display: flex;
+    transition: all 0.5s ease-out;
+  }
+
+  .__mail:hover {
+    color: var(--s-300) !important;
+    transition: all 0.5s ease-out;
+  }
+  .__mail::before {
+    content: url('/wp-content/uploads/2025/11/mail.svg');
+    margin-right: 12px;
+    position: relative;
+    top: 2px;
+  }
+}

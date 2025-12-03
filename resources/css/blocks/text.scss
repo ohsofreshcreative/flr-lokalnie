@@ -1,0 +1,26 @@
+.text {
+  .__content {
+    .__txt {
+		a{
+			color:#FFF !important;
+			text-decoration: underline !important;
+		}
+      p {
+        margin-bottom: 16px !important;
+      }
+    }
+    ol {
+      list-style-type: decimal;
+      margin-left: 18px;
+      line-height: 1.8;
+    }
+  }
+}
+
+.text.oplaty {
+	h2 {
+		font-size:28px !important;
+		line-height: 36px !important;
+		margin-bottom:24px !important;
+	}
+}
