@@ -48,6 +48,12 @@ class BottomBlock extends Block
 			/*--- USTAWIENIA BLOKU ---*/
 
 			->addTab('Ustawienia bloku', ['placement' => 'top'])
+			->addText('section_id', [
+				'label' => 'ID',
+			])
+			->addText('section_class', [
+				'label' => 'Dodatkowe klasy CSS',
+			])
 			->addTrueFalse('flip', [
 				'label' => 'Odwrotna kolejność',
 				'ui' => 1,
@@ -72,30 +78,21 @@ class BottomBlock extends Block
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
 			])
-			->addTrueFalse('lightbg', [
-				'label' => 'Jasne tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('graybg', [
-				'label' => 'Szare tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('whitebg', [
-				'label' => 'Białe tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('brandbg', [
-				'label' => 'Tło marki',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			]);
+			->addSelect('background', [
+                'label' => 'Kolor tła',
+                'choices' => [
+                    'none' => 'Brak (domyślne)',
+                    'section-white' => 'Białe',
+                    'section-light' => 'Jasne',
+                    'section-gray' => 'Szare',
+                    'section-brand' => 'Marki',
+                    'section-gradient' => 'Gradient',
+                    'section-dark' => 'Ciemne',
+                ],
+                'default_value' => 'none',
+                'ui' => 0, // Ulepszony interfejs
+                'allow_null' => 0,
+            ]);
 
 		return $bottomBlock->build();
 	}
@@ -109,14 +106,13 @@ class BottomBlock extends Block
 	{
 		return [
 			'bottom' => get_field('bottom', 'option'),
+			'section_id' => get_field('section_id'),
+			'section_class' => get_field('section_class'),
 			'flip' => get_field('flip'),
 			'wide' => get_field('wide'),
 			'nomt' => get_field('nomt'),
 			'gap' => get_field('gap'),
-			'lightbg' => get_field('lightbg'),
-			'graybg' => get_field('graybg'),
-			'whitebg' => get_field('whitebg'),
-			'brandbg' => get_field('brandbg'),
+			'background' => get_field('background'),
 		];
 	}
 }

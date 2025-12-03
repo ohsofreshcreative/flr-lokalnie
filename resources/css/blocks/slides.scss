@@ -1,0 +1,18 @@
+.b-slides {
+	.__number {
+		color: rgba(172, 142, 142, 0);
+		-webkit-text-stroke-width: 1px;
+		-webkit-text-stroke-color: rgba(255, 126, 126, 0.6);
+		font-weight: 800;
+	}
+
+	/* Plik: resources/css/app.css */
+
+}
+	.usage-swiper,
+	.usage-swiper .swiper-wrapper,
+	.usage-swiper .swiper-slide {
+		touch-action: none !important;
+		cursor: default !important;
+		/* Zmieniamy też kursor, aby nie sugerował przeciągania */
+	}

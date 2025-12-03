@@ -37,47 +37,19 @@ class Hero extends Block
 			])
 			->addTab('Treść', ['placement' => 'top'])
 			->addGroup('g_hero', ['label' => 'Hero'])
-			->addTrueFalse('use_video', [
-  'label' => 'Użyj wideo w tle',
-  'ui' => 1,
-  'default_value' => 0, // domyślnie obraz
-  'ui_on_text' => 'Tak',
-  'ui_off_text' => 'Nie',
-])
-
-->addImage('image', [
-  'label' => 'Obraz',
-  'return_format' => 'array',
-  'preview_size' => 'medium',
-  'conditional_logic' => [
-    [[ 'field' => 'use_video', 'operator' => '!=', 'value' => 1 ]] // pokazuj tylko gdy wideo = off
-  ],
-])
-
-->addFile('video', [
-  'label' => 'Wideo (MP4/WebM/Ogg)',
-  'return_format' => 'array',
-  'mime_types' => 'mp4,webm,ogv',
-  'conditional_logic' => [
-    [[ 'field' => 'use_video', 'operator' => '==', 'value' => 1 ]]
-  ],
-])
-
-->addImage('video_poster', [
-  'label' => 'Poster (obrazek startowy)',
-  'return_format' => 'array',
-  'preview_size' => 'medium',
-  'conditional_logic' => [
-    [[ 'field' => 'use_video', 'operator' => '==', 'value' => 1 ]]
-  ],
-])
-
+			->addImage('image', [
+				'label' => 'Obraz',
+				'return_format' => 'array', // lub 'url', lub 'id'
+				'preview_size' => 'thumbnail',
+			])
+			->addText('header', ['label' => 'Nagłówek'])
 			->addText('title', ['label' => 'Tytuł'])
-			->addText('subtitle', ['label' => 'Podtytuł'])
-			->addText('txt', ['label' => 'Opis'])
-			->addText('date', ['label' => 'Data'])
-			->addText('place', ['label' => 'Miejsce'])
-			->addText('link', ['label' => 'Link do miejsca'])
+			->addWysiwyg('txt', [
+				'label' => 'Treść',
+				'tabs' => 'all', // 'visual', 'text', 'all'
+				'toolbar' => 'full', // 'basic', 'full'
+				'media_upload' => true,
+			])
 			->addLink('button1', [
 				'label' => 'Przycisk #1',
 				'return_format' => 'array',
@@ -89,20 +61,54 @@ class Hero extends Block
 
 			->endGroup()
 
-			->addTab('Ustawienia bloku', ['placement' => 'top'])
+			/*--- USTAWIENIA BLOKU ---*/
 
+			->addTab('Ustawienia bloku', ['placement' => 'top'])
+			->addText('section_id', [
+				'label' => 'ID',
+			])
+			->addText('section_class', [
+				'label' => 'Dodatkowe klasy CSS',
+			])
 			->addTrueFalse('flip', [
 				'label' => 'Odwrotna kolejność',
 				'ui' => 1,
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
 			])
-			->addText('section_id', [
-				'label' => 'ID',
+			->addTrueFalse('wide', [
+				'label' => 'Szeroka kolumna',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
 			])
-			->addText('section_class', [
-				'label' => 'Dodatkowe klasy CSS',
-			]);
+			->addTrueFalse('nomt', [
+				'label' => 'Usunięcie marginesu górnego',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('gap', [
+				'label' => 'Większy odstęp',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addSelect('background', [
+                'label' => 'Kolor tła',
+                'choices' => [
+                    'none' => 'Brak (domyślne)',
+                    'section-white' => 'Białe',
+                    'section-light' => 'Jasne',
+                    'section-gray' => 'Szare',
+                    'section-brand' => 'Marki',
+                    'section-gradient' => 'Gradient',
+                    'section-dark' => 'Ciemne',
+                ],
+                'default_value' => 'none',
+                'ui' => 0, // Ulepszony interfejs
+                'allow_null' => 0,
+            ]);
 
 		return $hero;
 	}
@@ -111,9 +117,13 @@ class Hero extends Block
 	{
 		return [
 			'g_hero' => get_field('g_hero'),
-			'flip' => get_field('flip'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
+			'flip' => get_field('flip'),
+			'wide' => get_field('wide'),
+			'nomt' => get_field('nomt'),
+			'gap' => get_field('gap'),
+			'background' => get_field('background'),
 		];
 	}
 }

@@ -5,10 +5,7 @@ import './footer-accordion.js';
 import './swiper.js';
 import './lightbox.js';
 import './registration.js';
-
-/*--- BLOCKS ---*/
-
-Object.values(import.meta.glob('./blocks/*.js', { eager: true }));
+import './blocks/slides.js';
 
 /*--- GSAP ---*/
 
@@ -236,4 +233,5 @@ jQuery(function($) {
         selectPayU();
     });
 });
+
 

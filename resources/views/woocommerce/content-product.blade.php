@@ -5,12 +5,15 @@ global $product;
 // Get ACF fields from the 'product_about' group
 $product_about = get_field('product_about', $product->get_id());
 $description = $product->get_description();
+
+// --- ZMIANA ---
+// Użyj nazwy produktu z ACF jeśli istnieje, w przeciwnym razie użyj standardowej nazwy produktu WooCommerce
+$product_name = (is_array($product_about) && !empty($product_about['name'])) ? $product_about['name'] : $product->get_name();
 @endphp
 
 <li class="product__card border-left-p bg-dark border-dashed rounded-xl !px-10 !py-14 grid grid-cols-1 lg:grid-cols-[1fr_2fr_2fr] gap-10">
 
 	<figure class="woocommerce-product-figure relative">
-
 		<a href="{{ get_permalink() }}">
 			<img src="{{ get_the_post_thumbnail_url($product->get_id(), 'large') }}"
 				alt="{{ get_the_title() }}" class="img-m img-xs" />
@@ -19,7 +22,8 @@ $description = $product->get_description();
 
 	<div>
 		<h5 class="woocommerce-loop-product__title">
-			<a class="text-white" href="{{ get_permalink() }}">{{ $product_about['name'] }}</a>
+            {{-- --- ZMIANA --- Używamy nowej, bezpiecznej zmiennej --}}
+			<a class="text-white" href="{{ get_permalink() }}">{{ $product_name }}</a>
 		</h5>
 		@if ($description)
 		<div class="text-sm mt-4 text-white">{!! $description !!}</div>
@@ -28,14 +32,15 @@ $description = $product->get_description();
 
 	<div class="flex flex-col justify-between b-border-l pl-10">
 		<div class="flex gap-6">
-			@if (!empty($product_about['date']))
+            {{-- --- ZMIANA --- Dodano sprawdzenie, czy $product_about jest tablicą --}}
+			@if (is_array($product_about) && !empty($product_about['date']))
 			<div class="text-white flex items-center gap-2"><img src="/wp-content/uploads/2025/11/callendar.svg"/> {{ $product_about['date'] }}</div>
 			@endif
-			@if (!empty($product_about['place']))
+            {{-- --- ZMIANA --- Dodano sprawdzenie, czy $product_about jest tablicą --}}
+			@if (is_array($product_about) && !empty($product_about['place']))
 			<div class="text-white flex items-center gap-2"><img src="/wp-content/uploads/2025/11/place.svg"/> {{ $product_about['place'] }}</div>
 			@endif
 		</div>
-
 
 		{{-- Column 4: Price & Button --}}
 		<div class="">

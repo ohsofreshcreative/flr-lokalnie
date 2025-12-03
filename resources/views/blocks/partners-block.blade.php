@@ -2,23 +2,15 @@
 // Pobieranie danych ze strony opcji
 $r_partners = get_field('r_partners', 'option');
 
-// Pobieranie ustawień bloku (jeśli są potrzebne)
-$section_id = get_field('section_id');
-$section_class = get_field('section_class');
-$nomt = get_field('nomt');
-$wide = get_field('wide');
-$lightbg = get_field('lightbg');
-$graybg = get_field('graybg');
-$whitebg = get_field('whitebg');
-$brandbg = get_field('brandbg');
-
 $sectionClass = '';
+$sectionClass .= $flip ? ' order-flip' : '';
 $sectionClass .= $wide ? ' wide' : '';
 $sectionClass .= $nomt ? ' !mt-0' : '';
-$sectionClass .= $lightbg ? ' section-light' : '';
-$sectionClass .= $graybg ? ' section-gray' : '';
-$sectionClass .= $whitebg ? ' section-white' : '';
-$sectionClass .= $brandbg ? ' section-brand' : '';
+$sectionClass .= $gap ? ' wider-gap' : '';
+
+if (!empty($background) && $background !== 'none') {
+$sectionClass .= ' ' . $background;
+}
 @endphp
 
 <section @if(!empty($section_id)) id="{{ $section_id }}" @endif class="partners -smt {{ $sectionClass }} {{ $section_class }}">

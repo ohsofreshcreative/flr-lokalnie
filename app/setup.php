@@ -243,17 +243,23 @@ add_filter('woocommerce_add_to_cart_validation', function ($passed, $product_id,
 
 /*--- CART BEHAVIOR ---*/
 
-add_filter('woocommerce_add_to_cart_redirect', function () {
-    return wc_get_checkout_url();
-});
-
-add_filter('woocommerce_add_to_cart_validation', function ($passed) {
-    if (! WC()->cart->is_empty()) {
+add_action('woocommerce_add_to_cart_handler', function ($product_id) {
+    if (!isset($product_id)) {
+        return;
+    }
+    if (WC()->cart && !WC()->cart->is_empty()) {
         WC()->cart->empty_cart();
     }
-    return $passed;
 });
 
+add_filter('woocommerce_add_to_cart_json', function ($data) {
+    $data['redirect'] = wc_get_checkout_url();
+    return $data;
+});
+
+add_filter('woocommerce_add_to_cart_redirect', function ($url) {
+    return wc_get_checkout_url();
+});
 
 /*--- SET PAYU AS DEFAULT ---*/
 

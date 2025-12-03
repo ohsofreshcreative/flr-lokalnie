@@ -23,9 +23,9 @@
 	@php(wp_body_open())
 
 <div class="so__icons flex flex-col gap-1">
-	<a target="_blank" href="https://www.facebook.com/everethpublishing"><img src="/wp-content/uploads/2025/11/fb.svg"/></a>
-	<a target="_blank" href="https://www.instagram.com/everethpublishing/"><img src="/wp-content/uploads/2025/11/ig.svg"/></a>
-	<a target="_blank" href="https://www.linkedin.com/company/evereth/"><img src="/wp-content/uploads/2025/11/in.svg"/></a>
+	<a target="_blank" href="https://www.facebook.com/everethpublishing"><img src="/wp-content/uploads/2025/12/fb.svg"/></a>
+	<a target="_blank" href="https://www.instagram.com/everethpublishing/"><img src="/wp-content/uploads/2025/12/ig.svg"/></a>
+	<a target="_blank" href="https://www.linkedin.com/company/evereth/"><img src="/wp-content/uploads/2025/12/in.svg"/></a>
 </div>
 
 	<div id="app">

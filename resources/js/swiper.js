@@ -68,33 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const swipers = document.querySelectorAll('.usage-swiper');
-
-  if (swipers.length > 0) {
-    swipers.forEach((container) => {
-      new Swiper(container, {
-        slidesPerView: 3,
-        spaceBetween: 30,
-        loop: true, // Pętla nieskończona
-        allowTouchMove: false, // Blokada ręcznego przewijania (myszką/palcem)
-        speed: 1000, // Opcjonalnie: czas trwania animacji przejścia (1s) dla płynności
-        autoplay: {
-          delay: 1000, // Czas w ms (3 sekundy) między przewinięciami
-          disableOnInteraction: false, // Autoplay nie zatrzyma się po kliknięciu strzałek
-        },
-        pagination: {
-          el: container.querySelector('.swiper-pagination'),
-          clickable: true,
-        },
-        navigation: {
-          nextEl: container.querySelector('.swiper-button-next'),
-          prevEl: container.querySelector('.swiper-button-prev'),
-        },
-      });
-    });
-  }
-});
 
 document.addEventListener('DOMContentLoaded', () => {
   const swipers = document.querySelectorAll('.reviews-swiper');
