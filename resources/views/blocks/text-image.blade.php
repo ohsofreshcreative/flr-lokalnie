@@ -8,7 +8,6 @@ $sectionClass .= $gap ? ' wider-gap' : '';
 if (!empty($background) && $background !== 'none') {
 $sectionClass .= ' ' . $background;
 }
-
 @endphp
 
 <!--- text-image -->
@@ -18,13 +17,13 @@ $sectionClass .= ' ' . $background;
 	<div class="__wrapper c-main relative">
 		<div class="__col grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
 			@if (!empty($g_textimg['image']))
-			<div data-gsap-element="{{ $flip ? 'img-right' : 'img-left' }}" class="image-reveal-wrapper __img order1">
-				<img class="object-cover w-full __img img-xl radius-img" src="{{ $g_textimg['image']['url'] }}" alt="{{ $g_textimg['image']['alt'] ?? '' }}">
+			<div data-gsap-element="{{ $flip ? 'img-right' : 'img-left' }}" class="image-reveal-wrapper __img order1 h-full">
+				<img class="object-cover w-full __img radius-img h-full" src="{{ $g_textimg['image']['url'] }}" alt="{{ $g_textimg['image']['alt'] ?? '' }}">
 			</div>
 			@endif
 
-			<div class="__content order2">
-				@if (!empty($g_textimg['image']))
+			<div class="__content order2 py-0 md:py-8">
+				@if (!empty($g_textimg['subtitle']))
 				<p data-gsap-element="subtitle" class="subtitle-s">{{ $g_textimg['subtitle'] }}</p>
 				@endif
 				<h2 data-gsap-element="header" class="text-white m-header">{{ $g_textimg['title'] }}</h2>

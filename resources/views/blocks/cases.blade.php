@@ -6,7 +6,8 @@ $sectionClass .= $lightbg ? ' section-light' : '';
 
 <section data-gsap-anim="section" class="cases {{ $sectionClass }}">
 	<div class="__wrapper c-main">
-		<div class="">
+
+				
 
 			@if (!empty($g_cases['r_cases']))
 			<div class="">
@@ -43,7 +44,6 @@ $sectionClass .= $lightbg ? ' section-light' : '';
 			</div>
 			@endif
 
-		</div>
 	</div>
 
 </section>

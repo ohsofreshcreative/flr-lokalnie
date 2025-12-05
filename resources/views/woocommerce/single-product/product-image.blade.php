@@ -50,31 +50,37 @@ $wrapper_classes   = apply_filters(
 		?>
 	</div>
 
-	<div class="datetime">
+	<div class="datetime grid gap-4 mt-6">
 		<?php if (get_field('programis')) : ?>
-			<div class="stroke-btn">
-				<a target="_blank" href="<?php the_field('programis'); ?>">Pobierz program</a>
+			<div class="__btn">
+				<a class="stroke-btn" target="_blank" href="<?php the_field('programis'); ?>">Pobierz program</a>
 			</div>
 		<?php endif; ?>
 
 		<?php if (get_field('miejsce')) : ?>
-			<h5 class="text-border">Miejsce</h5>
-			<p class=""><?php the_field('miejsce'); ?></p>
+			<div class="b-border-t b-dashed pt-4">
+				<h5 class="text-white b-bottom-p w-max mb-2">Miejsce</h5>
+				<p class="text-white"><?php the_field('miejsce'); ?></p>
+			</div>
 		<?php endif; ?>
 
 		<?php if (get_field('event_date')) : ?>
-			<h5 class="text-border">Termin</h5>
-			<p class=" "><?php the_field('event_date'); ?></p>
+			<div>
+				<h5 class="text-white b-bottom-p w-max mb-2">Termin</h5>
+				<p class="text-white"><?php the_field('event_date'); ?></p>
+			</div>
 		<?php endif; ?>
-	</div>
 
-	<h5 class="text-border">Organizatorzy</h5>
-	<div class="logos flex flex-wrap a-items-c">
-		<div class="__img"><img src="https://infu.pl/wp-content/uploads/2024/11/ptpi.svg" alt="PTPI" /></div>
-		<div class="__img"><img src="https://infu.pl/wp-content/uploads/2024/11/eve.svg" alt="EVE" /></div>
-		<?php if (get_field('partner')) : ?>
-			<div class="__img"><img src="<?php the_field('partner'); ?>" alt="Partner" /></div>
-		<?php endif; ?>
+		<div>
+			<h5 class="text-white b-bottom-p w-max mb-2">Organizatorzy</h5>
+			<div class="__logos flex flex-wrap items-center gap-4 mt-4">
+				<div class="__img"><img src="https://infu.pl/wp-content/uploads/2024/11/ptpi.svg" alt="PTPI" /></div>
+				<div class="__img"><img src="https://infu.pl/wp-content/uploads/2024/11/eve.svg" alt="EVE" /></div>
+				<?php if (get_field('partner')) : ?>
+					<div class="__img"><img src="<?php the_field('partner'); ?>" alt="Partner" /></div>
+				<?php endif; ?>
+			</div>
+		</div>
 	</div>
 
 

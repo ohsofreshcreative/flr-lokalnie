@@ -6,13 +6,12 @@
 		font-weight: 800;
 	}
 
-	/* Plik: resources/css/app.css */
-
 }
-	.usage-swiper,
-	.usage-swiper .swiper-wrapper,
-	.usage-swiper .swiper-slide {
-		touch-action: none !important;
-		cursor: default !important;
-		/* Zmieniamy też kursor, aby nie sugerował przeciągania */
-	}
+
+.usage-swiper,
+.usage-swiper .swiper-wrapper,
+.usage-swiper .swiper-slide {
+	touch-action: none !important;
+	cursor: default !important;
+	/* Zmieniamy też kursor, aby nie sugerował przeciągania */
+}

@@ -13,13 +13,13 @@ $sectionClass .= ' ' . $background;
 
 <!--- text -->
 
-<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="text relative -smt {{ $sectionClass }} {{ $section_class }}">
+<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-text relative -smt {{ $sectionClass }} {{ $section_class }}">
 
 	<div class="__wrapper c-main relative">
 
 		<div class="__content order2">
 			@if (!empty($g_text['subtitle']))
-			<p data-gsap-element="subtitle" class="__subtitle subtitle-s">{{ $g_text['subtitle'] }}</p>
+			<p data-gsap-element="subtitle" class="__subtitle subtitle-p">{{ $g_text['subtitle'] }}</p>
 			@endif
 			@if (!empty($g_text['header']))
 			<h2 data-gsap-element="header" class="text-white m-header">{{ $g_text['header'] }}</h2>

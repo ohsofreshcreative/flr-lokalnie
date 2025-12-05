@@ -108,3 +108,18 @@ add_filter('woocommerce_checkout_fields', function ($fields) {
 
     return $fields;
 });
+
+/*--- ADD CENA BEFORE PRICE ---*/
+
+add_filter('woocommerce_get_price_html', function ($price_html, $product) {
+    // Sprawdzamy, czy jesteśmy na stronie pojedynczego produktu,
+    // aby etykieta nie pojawiła się np. na stronie sklepu.
+    if (is_product()) {
+        // Zwracamy nowy HTML z dodaną etykietą.
+        // Używamy tagu <span>, aby można było go łatwo stylować w CSS.
+        return '<span class="price-label">Cena: </span>' . $price_html;
+    }
+
+    // Na wszystkich innych stronach zwracamy cenę bez zmian.
+    return $price_html;
+}, 10, 2);

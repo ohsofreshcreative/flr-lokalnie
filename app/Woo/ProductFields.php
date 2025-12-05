@@ -95,7 +95,7 @@ add_action('acf/init', function () {
                 'key' => 'field_program_url',
                 'label' => 'Link do programu',
                 'name' => 'programis',
-                'type' => 'url',
+                'type' => 'file',
             ],
             [
                 'key' => 'field_partner_logo',

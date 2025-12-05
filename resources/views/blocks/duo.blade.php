@@ -20,7 +20,7 @@ $sectionClass .= ' ' . $background;
 
 			<div class="__content order2">
 				@if (!empty($g_duo['image']))
-				<p data-gsap-element="subtitle" class="subtitle-s">{{ $g_duo['subtitle'] }}</p>
+				<p data-gsap-element="subtitle" class="subtitle-p">{{ $g_duo['subtitle'] }}</p>
 				@endif
 				<h2 data-gsap-element="header" class="text-white m-header">{{ $g_duo['title'] }}</h2>
 

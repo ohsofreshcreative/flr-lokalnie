@@ -8,8 +8,9 @@ $sectionClass .= $gap ? ' wider-gap' : '';
 if (!empty($background) && $background !== 'none') {
 $sectionClass .= ' ' . $background;
 }
-
 @endphp
+
+<!-- slides --->
 
 <section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-slides relative -smt {{ $sectionClass }} {{ $section_class }}">
 

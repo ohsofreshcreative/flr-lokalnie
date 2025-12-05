@@ -22,9 +22,9 @@ $sectionClass .= $brandbg ? ' section-brand' : '';
 		@if (!empty($g_connect['r_connect']))
 		<div data-gsap-element="stagger" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 			@foreach ($g_connect['r_connect'] as $item)
-			<div class="__card relative radius bg-brand b-shadow p-8">
+			<div class="__card relative radius bg-darker b-shadow p-8">
 				<img class="mb-6" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}" />
-				<h5 class="m-title secondary !font-bold mb-4">{{ $item['header'] }}</h5>
+				<h5 class="m-title primary !font-bold mb-4">{{ $item['header'] }}</h5>
 				<p class="text-white">{!! $item['text'] !!}</p>
 
 				<div class="pt-4">

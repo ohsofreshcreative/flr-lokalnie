@@ -24,6 +24,7 @@ return array(
     'App\\Blocks\\CtaBg' => $baseDir . '/app/Blocks/CtaBg.php',
     'App\\Blocks\\Department' => $baseDir . '/app/Blocks/Department.php',
     'App\\Blocks\\Duo' => $baseDir . '/app/Blocks/Duo.php',
+    'App\\Blocks\\EventsList' => $baseDir . '/app/Blocks/EventsList.php',
     'App\\Blocks\\Experts' => $baseDir . '/app/Blocks/Experts.php',
     'App\\Blocks\\Faq' => $baseDir . '/app/Blocks/Faq.php',
     'App\\Blocks\\Gallery' => $baseDir . '/app/Blocks/Gallery.php',

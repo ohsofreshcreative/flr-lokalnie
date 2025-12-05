@@ -9,7 +9,7 @@ use WP_Query;
 class EventsList extends Block
 {
     public $name = 'Lista Wydarzeń';
-    public $description = 'Blok wyświetlający listę wydarzeń (produktów) z opcjonalnym newsletterem.';
+    public $description = 'events-list';
     public $slug = 'events-list';
     public $category = 'formatting';
     public $icon = 'calendar-alt';
@@ -27,6 +27,16 @@ class EventsList extends Block
 
         $eventsList
             ->setLocation('block', '==', 'acf/events-list')
+
+			->addText('block-title', [
+				'label' => 'Tytuł',
+				'required' => 0,
+			])
+			->addAccordion('accordion1', [
+				'label' => 'Lista Wydarzeń',
+				'open' => false,
+				'multi_expand' => true,
+			])
             /* --- Sekcja Newslettera --- */
             ->addTab('Newsletter', ['placement' => 'top'])
             ->addTrueFalse('show_newsletter', [
@@ -35,48 +45,93 @@ class EventsList extends Block
                 'default_value' => 1,
             ])
             ->addImage('newsletter_image', [
-                'label' => 'Obrazek w newsletterze',
+                'label' => 'Obraz',
                 'return_format' => 'array',
                 'conditional_logic' => [['field' => 'show_newsletter', 'operator' => '==', 'value' => '1']],
             ])
             ->addText('newsletter_title', [
-                'label' => 'Tytuł newslettera',
-                'default_value' => 'Bądź na bieżąco',
+                'label' => 'Tytuł',
                 'conditional_logic' => [['field' => 'show_newsletter', 'operator' => '==', 'value' => '1']],
             ])
             ->addTextarea('newsletter_subtitle', [
-                'label' => 'Podtytuł newslettera',
+                'label' => 'Opis',
                 'rows' => 2,
-                'default_value' => 'Zapisz się do newslettera i otrzymuj informacje o najbliższych terminach rejestracji',
                 'conditional_logic' => [['field' => 'show_newsletter', 'operator' => '==', 'value' => '1']],
             ])
             ->addText('newsletter_shortcode', [
-                'label' => 'Shortcode formularza (np. Contact Form 7)',
-                'instructions' => 'Wklej tutaj shortcode formularza, np. [contact-form-7 id="..."]',
+                'label' => 'Shortcode formularza',
                 'conditional_logic' => [['field' => 'show_newsletter', 'operator' => '==', 'value' => '1']],
             ])
 
             /* --- Sekcja Listy Wydarzeń --- */
             ->addTab('Lista Wydarzeń', ['placement' => 'top'])
             ->addText('events_subheader', [
-                'label' => 'Nadtytuł listy',
+                'label' => 'Tytuł',
             ])
             ->addText('events_header', [
-                'label' => 'Główny tytuł listy',
+                'label' => 'Nagłówek',
             ])
             ->addTaxonomy('events_category', [
-                'label' => 'Wybierz kategorię wydarzeń',
+                'label' => 'Wybierz kategorię',
                 'taxonomy' => 'product_cat',
                 'field_type' => 'select',
                 'return_format' => 'slug',
                 'allow_null' => 1,
-                'instructions' => 'Wybierz kategorię produktów, które mają być wyświetlane jako wydarzenia. Pozostaw puste, aby wyświetlić wszystkie.',
             ])
             ->addTrueFalse('order_by_date', [
-                'label' => 'Sortuj po dacie wydarzenia (pole "data")?',
+                'label' => 'Sortuj po dacie',
                 'instructions' => 'Wymaga istnienia pola ACF "data" w produktach. Domyślnie sortuje po dacie publikacji.',
                 'ui' => 1,
                 'default_value' => 0,
+            ])
+			
+			/*--- USTAWIENIA BLOKU ---*/
+
+			->addTab('Ustawienia bloku', ['placement' => 'top'])
+			->addText('section_id', [
+				'label' => 'ID',
+			])
+			->addText('section_class', [
+				'label' => 'Dodatkowe klasy CSS',
+			])
+			->addTrueFalse('flip', [
+				'label' => 'Odwrotna kolejność',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('wide', [
+				'label' => 'Szeroka kolumna',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('nomt', [
+				'label' => 'Usunięcie marginesu górnego',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('gap', [
+				'label' => 'Większy odstęp',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addSelect('background', [
+                'label' => 'Kolor tła',
+                'choices' => [
+                    'none' => 'Brak (domyślne)',
+                    'section-white' => 'Białe',
+                    'section-light' => 'Jasne',
+                    'section-gray' => 'Szare',
+                    'section-brand' => 'Marki',
+                    'section-gradient' => 'Gradient',
+                    'section-dark' => 'Ciemne',
+                ],
+                'default_value' => 'none',
+                'ui' => 0, // Ulepszony interfejs
+                'allow_null' => 0,
             ]);
 
         return $eventsList->build();
@@ -100,6 +155,14 @@ class EventsList extends Block
                 'category' => get_field('events_category'),
             ],
             'events_query' => $events_query,
+
+			'section_id' => get_field('section_id'),
+			'section_class' => get_field('section_class'),
+			'flip' => get_field('flip'),
+			'wide' => get_field('wide'),
+			'nomt' => get_field('nomt'),
+			'gap' => get_field('gap'),
+			'background' => get_field('background'),
         ];
     }
 

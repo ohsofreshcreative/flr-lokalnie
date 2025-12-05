@@ -1,0 +1,38 @@
+.b-events-list {
+	.__newsletter {
+		input[type='submit'] {
+			margin-top: 0;
+			padding: 13px 45px;
+		}
+	}
+
+	.__list {
+		.__card:nth-child(even) {
+			background-color: rgba(255, 0, 0, 0.065);
+		}
+
+		.__card:nth-child(odd) {
+			background-color: rgba(255, 84, 84, 0.17);
+		}
+	}
+}
+
+.b-events-list.section-main {
+	p,
+	h6,
+	h2 {
+		color: #FFF !important;
+	}
+
+	.subtitle-p {
+		color: var(--primary) !important;
+	}
+
+	.__card:nth-child(even) {
+		background-color: rgba(255, 255, 255, 0.6);
+	}
+
+	.__card:nth-child(odd) {
+		background-color: rgba(255, 255, 255, 0.9);
+	}
+}

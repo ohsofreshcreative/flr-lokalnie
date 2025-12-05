@@ -4,7 +4,7 @@ $sectionClass .= $flip ? ' order-flip' : '';
 @endphp
 
 @php
-$backgroundImage = !empty($g_hero_sub['image']['url']) ? "linear-gradient(90deg, rgba(0, 34, 85, 0.9) 30%, rgba(0, 34, 85, 0.3) 100%), url({$g_hero_sub['image']['url']})" : '';
+$backgroundImage = !empty($g_hero_sub['image']['url']) ? "linear-gradient(90deg, rgba(41, 3, 8, 1) 40%, rgba(41, 3, 8, 0.3) 100%), url({$g_hero_sub['image']['url']})" : '';
 @endphp
 
 <!-- hero-sub -->
@@ -21,7 +21,7 @@ $backgroundImage = !empty($g_hero_sub['image']['url']) ? "linear-gradient(90deg,
 
 			@if (!empty($g_hero_sub['button1']))
 			<div class="inline-buttons m-btn">
-				<a data-gsap-element="button" class="second-btn left-btn" href="{{ $g_hero_sub['button1']['url'] }}" target="{{ $g_hero_sub['button1']['target'] }}">{{ $g_hero_sub['button1']['title'] }}</a>
+				<a data-gsap-element="button" class="main-btn left-btn" href="{{ $g_hero_sub['button1']['url'] }}" target="{{ $g_hero_sub['button1']['target'] }}">{{ $g_hero_sub['button1']['title'] }}</a>
 
 				@if (!empty($g_hero_sub['button2']))
 				<a data-gsap-element="button" class="white-btn" href="{{ $g_hero_sub['button2']['url'] }}" target="{{ $g_hero_sub['button2']['target'] }}">{{ $g_hero_sub['button2']['title'] }}</a>

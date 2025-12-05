@@ -13,7 +13,7 @@ $sectionClass .= ' ' . $background;
 
 <!--- tailored --->
 
-<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-tailored -smt section-py {{ $sectionClass }}" style="background-image:linear-gradient(rgba(0, 43, 109, 0.7), rgba(0, 43, 109, 0.7)), url('{{ $g_tailored['image']['url'] }}'); background-size:cover; background-position:center;">
+<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-tailored -smt section-py {{ $sectionClass }}" style="background-image:linear-gradient(rgba(41, 3, 8, 0.7), rgba(41, 3, 8, 1)), url('{{ $g_tailored['image']['url'] }}'); background-size:cover; background-position:center;">
 
 	<div class="__wrapper c-main">
 		<div class="">

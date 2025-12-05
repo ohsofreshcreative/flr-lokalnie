@@ -548,6 +548,7 @@ class ComposerStaticInit98f3e1b0ed14492de67a0e6fcacef8b0
         'App\\Blocks\\CtaBg' => __DIR__ . '/../..' . '/app/Blocks/CtaBg.php',
         'App\\Blocks\\Department' => __DIR__ . '/../..' . '/app/Blocks/Department.php',
         'App\\Blocks\\Duo' => __DIR__ . '/../..' . '/app/Blocks/Duo.php',
+        'App\\Blocks\\EventsList' => __DIR__ . '/../..' . '/app/Blocks/EventsList.php',
         'App\\Blocks\\Experts' => __DIR__ . '/../..' . '/app/Blocks/Experts.php',
         'App\\Blocks\\Faq' => __DIR__ . '/../..' . '/app/Blocks/Faq.php',
         'App\\Blocks\\Gallery' => __DIR__ . '/../..' . '/app/Blocks/Gallery.php',

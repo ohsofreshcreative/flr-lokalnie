@@ -38,6 +38,8 @@ class Cards extends Block
 			/*--- FIELDS ---*/
 			->addTab('Treści', ['placement' => 'top'])
 			->addGroup('g_cards', ['label' => ''])
+			->addText('subtitle', ['label' => 'Tytuł'])
+			->addText('title', ['label' => 'Nagłówek'])
 			->addRepeater('r_cards', [
 				'label' => 'Kafelki',
 				'layout' => 'table', // 'row', 'block', albo 'table'

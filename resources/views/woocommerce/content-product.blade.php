@@ -2,12 +2,9 @@
 defined('ABSPATH') || exit;
 global $product;
 
-// Get ACF fields from the 'product_about' group
 $product_about = get_field('product_about', $product->get_id());
 $description = $product->get_description();
 
-// --- ZMIANA ---
-// Użyj nazwy produktu z ACF jeśli istnieje, w przeciwnym razie użyj standardowej nazwy produktu WooCommerce
 $product_name = (is_array($product_about) && !empty($product_about['name'])) ? $product_about['name'] : $product->get_name();
 @endphp
 
@@ -22,7 +19,7 @@ $product_name = (is_array($product_about) && !empty($product_about['name'])) ? $
 
 	<div>
 		<h5 class="woocommerce-loop-product__title">
-            {{-- --- ZMIANA --- Używamy nowej, bezpiecznej zmiennej --}}
+        
 			<a class="text-white" href="{{ get_permalink() }}">{{ $product_name }}</a>
 		</h5>
 		@if ($description)
@@ -32,17 +29,16 @@ $product_name = (is_array($product_about) && !empty($product_about['name'])) ? $
 
 	<div class="flex flex-col justify-between b-border-l pl-10">
 		<div class="flex gap-6">
-            {{-- --- ZMIANA --- Dodano sprawdzenie, czy $product_about jest tablicą --}}
+       
 			@if (is_array($product_about) && !empty($product_about['date']))
 			<div class="text-white flex items-center gap-2"><img src="/wp-content/uploads/2025/11/callendar.svg"/> {{ $product_about['date'] }}</div>
 			@endif
-            {{-- --- ZMIANA --- Dodano sprawdzenie, czy $product_about jest tablicą --}}
+        
 			@if (is_array($product_about) && !empty($product_about['place']))
 			<div class="text-white flex items-center gap-2"><img src="/wp-content/uploads/2025/11/place.svg"/> {{ $product_about['place'] }}</div>
 			@endif
 		</div>
 
-		{{-- Column 4: Price & Button --}}
 		<div class="">
 			<div class="price text-2xl text-white">
 				Bilety od:<br> {!! $product->get_price_html() !!}

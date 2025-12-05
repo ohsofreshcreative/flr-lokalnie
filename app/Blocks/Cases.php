@@ -38,7 +38,6 @@ class Cases extends Block
 			/*--- FIELDS ---*/
 			->addTab('Treści', ['placement' => 'top'])
 			->addGroup('g_cases', ['label' => ''])
-
 			->addRepeater('r_cases', [
 				'label' => 'Kafelki',
 				'layout' => 'table', // 'row', 'block', albo 'table'
@@ -51,13 +50,13 @@ class Cases extends Block
 				'return_format' => 'array', // lub 'url', lub 'id'
 				'preview_size' => 'medium',
 				'wrapper' => [
-					'width' => 15, 
+					'width' => 15,
 				],
 			])
 			->addText('card_subtitle', [
 				'label' => 'Podtytuł wstępny',
 				'wrapper' => [
-					'width' => 15, 
+					'width' => 15,
 				],
 			])
 			->addText('card_title', [
@@ -69,7 +68,7 @@ class Cases extends Block
 				'toolbar' => 'full', // 'basic', 'full'
 				'media_upload' => true,
 				'wrapper' => [
-					'width' => 40, 
+					'width' => 40,
 				],
 			])
 			->endRepeater()

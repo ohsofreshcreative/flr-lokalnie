@@ -1,5 +1,5 @@
 <footer class="footer">
-	<div class="__wrap bg-dark">
+	<div class="__wrap bg-darker">
 		<div class="__wrapper c-main">
 			<div class="__widgets grid gap-1 md:gap-6 pt-0 pb-30 md:py-36">
 				@for ($i = 1; $i <= 4; $i++)

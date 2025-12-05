@@ -1,95 +1,116 @@
 @php
-$sectionId = $block->data['id'] ?? null;
-$customClass = $block->data['className'] ?? '';
+// Zabezpieczamy zmienne, aby upewnić się, że istnieją
+$flip = !empty($flip);
+$wide = !empty($wide);
+$nomt = !empty($nomt);
+$gap = !empty($gap);
+
+$sectionClass = '';
+$sectionClass .= $flip ? ' order-flip' : '';
+$sectionClass .= $wide ? ' wide' : '';
+$sectionClass .= $nomt ? ' !mt-0' : '';
+$sectionClass .= $gap ? ' wider-gap' : '';
+
+if (!empty($background) && $background !== 'none') {
+    $sectionClass .= ' ' . $background;
+}
 @endphp
 
-<section @if($sectionId) id="{{ $sectionId }}" @endif class="events-list-block bg-white -pt-11 -pb-11 {{ $customClass }}">
-  
-  {{-- Sekcja Newslettera --}}
-  @if($show_newsletter && !empty($newsletter['shortcode']))
-    <div class="con-main newsletter grid-2 a-items-c -gap-5 grid-1-s -mb-10 -gap-2-s">
-      <div>
-        @if($newsletter['image'])
-          {!! wp_get_attachment_image($newsletter['image']['ID'], 'large', false, ['class' => 'blurIn']) !!}
-        @endif
-      </div>
-      <div class="blurIn delay-1" style="margin:0 auto; margin-bottom:30px;">
-        @if($newsletter['title'])
-          <h3 class="second -mb-1 blurIn">{{ $newsletter['title'] }}</h3>
-        @endif
-        @if($newsletter['subtitle'])
-          <h6 class="dark -mb-3 blurIn">{{ $newsletter['subtitle'] }}</h6>
-        @endif
-        {!! do_shortcode($newsletter['shortcode']) !!}
-      </div>
-    </div>
-  @endif
+<!-- events-list --->
 
-  {{-- Nagłówek listy wydarzeń --}}
-  <div id="oferta" class="calendar con-main">
-    @if($events['subheader'] || $events['header'])
-      <div class="w-40 w-100-l">
-        @if($events['subheader'])
-          <h6 class="sub blurIn">{{ $events['subheader'] }}</h6>
-        @endif
-        @if($events['header'])
-          <h3 class="dark blurIn -pt-2">{{ $events['header'] }}</h3>
-        @endif
-      </div>
-    @endif
-  </div>
+<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-events-list relative -smt {{ $sectionClass }} {{ $section_class }}">
 
- {{-- Lista wydarzeń --}}
-<div class="con-main related__news -pt-5">
-  <div class="grid-2-l -gap-2-l grid-1-m">
-    @if($events_query->have_posts())
-      @while($events_query->have_posts()) @php $events_query->the_post() @endphp
-        @php
-          global $product;
-          // POPRAWKA: Pobieramy pole o prawidłowej nazwie 'event_date'
-          $event_date = get_field('event_date', get_the_ID()); 
-          $program_url = get_field('programis', get_the_ID());
-          $is_registration_open = get_field('is_registration_open', get_the_ID());
-          $register_url = $is_registration_open ? get_the_permalink() : null;
-          $no_data_text = get_field('registration_closed_text', get_the_ID());
-        @endphp
+	<div class="__wrapper c-main">
+	<div class=" grid gap-20">
 
-        <div class="blog__card flex a-items-c -gap-5 blurIn -px-4 -py-2 no-flex-l ta-center-l">
-          <div class="news__image">
-            <img src="{{ get_theme_file_uri('/resources/images/Callendar.svg') }}" alt="Kalendarz"/>
-          </div>
-          <h5 class="font-bold -fs-20 flex-3 dark">{{ the_title() }}</h5>
-          
-          {{-- Poprawione wyświetlanie daty --}}
-          @if($event_date)
-            <div class="dark -fs-20 flex-3">{{ $event_date }}</div>
-          @endif
+		@if($show_newsletter && !empty($newsletter['shortcode']))
+		<div class="__newsletter grid grid-cols-1 md:grid-cols-2 items-center gap-6 order1">
+			<div class="__img">
+				@if($newsletter['image'])
+				{!! wp_get_attachment_image($newsletter['image']['ID'], 'large', false, ['class' => 'blurIn']) !!}
+				@endif
+			</div>
+			<div class="__content">
+				@if($newsletter['title'])
+				<h3 class="primary mb-2">{{ $newsletter['title'] }}</h3>
+				@endif
+				@if($newsletter['subtitle'])
+				<h6 class="mb-4">{{ $newsletter['subtitle'] }}</h6>
+				@endif
+				{!! do_shortcode($newsletter['shortcode']) !!}
+			</div>
+		</div>
+		@endif
 
-          {{-- Przycisk "Program wydarzenia" --}}
-          @if($program_url)
-            <div class="main text-underline flex-last text-center w-20 w-100-l -mt-2-l">
-              <a class="main font-bold" target="_blank" href="{{ $program_url }}">Program wydarzenia</a>
-            </div>
-          @else
-            <div class="dark flex-last text-center w-20 w-100-l -mt-2-l"></div>
-          @endif
 
-          {{-- Przycisk "Zarejestruj się" lub tekst alternatywny --}}
-          @if($register_url)
-            <div class="second-btn flex-last text-center w-20 w-100-l -mt-2-l">
-              <a href="{{ $register_url }}">Zarejestruj się</a>
-            </div>
-          @elseif($no_data_text)
-            <div class="dark flex-last text-center w-20 w-100-l -mt-2-l">{{ $no_data_text }}</div>
-          @else
-            <div class="dark flex-last text-center w-20 w-100-l -mt-2-l"></div>
-          @endif
-        </div>
-      @endwhile
-      @php wp_reset_postdata() @endphp
-    @else
-      <p>Brak nadchodzących wydarzeń.</p>
-    @endif
-  </div>
-</div>
+		<div id="oferta" class=" ">
+			<div class="__top">
+				@if($events['subheader'] || $events['header'])
+				<div class="">
+					@if($events['subheader'])
+					<p class="subtitle-p">{{ $events['subheader'] }}</p>
+					@endif
+					@if($events['header'])
+					<h2 class="w-full md:w-2/5">{{ $events['header'] }}</h2>
+					@endif
+				</div>
+				@endif
+			</div>
+
+			<div class="__list mt-10">
+				@if($events_query->have_posts())
+				@while($events_query->have_posts()) @php $events_query->the_post() @endphp
+				@php
+				$event_date = get_field('event_date', get_the_ID());
+			
+				$program_url = get_field('programis', get_the_ID()); 
+				$is_registration_open = get_field('is_registration_open', get_the_ID());
+				$register_url = $is_registration_open ? get_the_permalink() : null;
+				$no_data_text = get_field('registration_closed_text', get_the_ID());
+				@endphp
+				<div class="__card flex flex-col md:flex-row items-center justify-between w-full gap-6 p-6">
+					<div class="flex flex-col md:flex-row flex-1 items-center gap-6">
+						<div class="news__image">
+								<img src="/wp-content/uploads/2025/12/Callendar.svg" alt="Kalendarz" />
+						</div>
+						<h5 class="">{{ get_the_title() }}</h5>
+					</div>
+
+					@if($event_date)
+					
+						<div class="flex-1">{{ is_string($event_date) ? $event_date : '' }}</div>
+					@endif
+					
+					<div class="flex-1">
+					@if(!empty($program_url) && is_array($program_url) && !empty($program_url['url']))
+					<div class="text-underline">
+						<a class="main font-bold" target="_blank" href="{{ $program_url['url'] }}">Program wydarzenia</a>
+					</div>
+					@else
+					<div class="dark flex-last text-center"></div>
+					@endif
+					</div>
+
+					@if($register_url)
+					<div class="flex-last text-center">
+						<a class="main-btn" href="{{ $register_url }}">Zarejestruj się</a>
+					</div>
+					@elseif($no_data_text)
+						
+						<div class="dark flex-last text-center">{{ is_string($no_data_text) ? $no_data_text : '' }}</div>
+					@else
+					<div class="dark flex-last text-center"></div>
+					@endif
+				</div>
+				@endwhile
+				@php wp_reset_postdata() @endphp
+				@else
+				<p>Brak nadchodzących wydarzeń.</p>
+				@endif
+			</div>
+		</div>
+
+	</div>
+	</div>
+
 </section>

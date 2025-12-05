@@ -31,7 +31,7 @@ class Tailored extends Block
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Liczby',
+				'label' => 'Liczby z tłem',
 				'open' => false,
 				'multi_expand' => true,
 			])

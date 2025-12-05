@@ -44,7 +44,7 @@
 @endphp
 
 @if ($has_related)
-  <section class="related products b-border-t pt-14">
+  <section class="related products b-border-t pt-14 hidden">
 
     @if ($heading)
       <div class="mb-14 flex items-center justify-between gap-4">

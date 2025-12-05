@@ -40,12 +40,12 @@ class TextText extends Block
 			/*--- GRUPA #1 ---*/
 			->addTab('Kolumna #1', ['placement' => 'top'])
 			->addGroup('g1_text_text', ['label' => ''])
-			->addImage('image', [
-				'label' => 'Obraz',
-				'return_format' => 'array', // lub 'url', lub 'id'
-				'preview_size' => 'thumbnail',
-			])
 			->addText('title', ['label' => 'Tytuł'])
+			->addText('header', ['label' => 'Nagłówek'])
+			->endGroup()
+			/*--- GRUPA #2 ---*/
+			->addTab('Kolumna #2', ['placement' => 'top'])
+			->addGroup('g2_text_text', ['label' => ''])
 			->addText('header', ['label' => 'Nagłówek'])
 			->addWysiwyg('content', [
 				'label' => 'Treść',
@@ -55,15 +55,9 @@ class TextText extends Block
 			])
 			->endGroup()
 
-			/*--- GRUPA #2 ---*/
-			->addTab('Kolumna #2', ['placement' => 'top'])
-			->addGroup('g2_text_text', ['label' => ''])
-			->addImage('image', [
-				'label' => 'Obraz',
-				'return_format' => 'array', // lub 'url', lub 'id'
-				'preview_size' => 'thumbnail',
-			])
-			->addText('title', ['label' => 'Tytuł'])
+			/*--- GRUPA #3 ---*/
+			->addTab('Kolumna #3', ['placement' => 'top'])
+			->addGroup('g3_text_text', ['label' => ''])
 			->addText('header', ['label' => 'Nagłówek'])
 			->addWysiwyg('content', [
 				'label' => 'Treść',
@@ -130,6 +124,7 @@ class TextText extends Block
 		return [
 			'g1_text_text' => get_field('g1_text_text'),
 			'g2_text_text' => get_field('g2_text_text'),
+			'g3_text_text' => get_field('g3_text_text'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
 			'flip' => get_field('flip'),

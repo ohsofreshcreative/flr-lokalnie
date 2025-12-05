@@ -34,7 +34,7 @@ $sectionClass .= ' ' . $background;
 				</div>
 
 				@if (!empty($g_workshops['button']))
-				<a data-gsap-element="btn" class="second-btn ml-auto" href="{{ $g_workshops['button']['url'] }}" target="{{ $g_workshops['button']['target'] }}">{{ $g_workshops['button']['title'] }}</a>
+				<a data-gsap-element="btn" class="main-btn ml-auto h-max" href="{{ $g_workshops['button']['url'] }}" target="{{ $g_workshops['button']['target'] }}">{{ $g_workshops['button']['title'] }}</a>
 				@endif
 			</div>
 

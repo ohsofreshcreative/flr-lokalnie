@@ -1,2 +1,17 @@
-.cards {
+.cards {}
+
+.zostan-sponsorem {
+	.__card {
+		text-align: left;
+		.__title {
+			flex-direction: column;
+		}
+		.__img {
+			max-width: 40px;
+		}
+		.text-xl {
+			font-size:16px;
+			color:var(--p-100);
+		}
+	}
 }

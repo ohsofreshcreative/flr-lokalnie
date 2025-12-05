@@ -20,7 +20,7 @@
   @endphp
 @endif
 
-<div id="product-{{ get_the_ID() }}" @php wc_product_class('grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10', $product) @endphp>
+<div id="product-{{ get_the_ID() }}" @php wc_product_class('grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 -smt', $product) @endphp>
   @php
     /**
      * Hook: woocommerce_before_single_product_summary.
