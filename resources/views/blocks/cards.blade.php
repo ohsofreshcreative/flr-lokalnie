@@ -39,7 +39,7 @@ $sectionClass .= ' ' . $background;
 					<img class="__img" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}" />
 					<h5 class=" text-white">{{ $item['header'] }}</h5>
 				</div>
-				<p class="text-xl text-white mt-2">{{ $item['text'] }}</p>
+				<p class="text-xl text-white mt-2">{!! $item['text'] !!}</p>
 
 				@if (!empty($item['button']))
 				<a data-gsap-element="btn" class="underline-btn m-btn" href="{{ $item['button']['url'] }}" target="{{ $item['button']['target'] }}">{{ $item['button']['title'] }}</a>

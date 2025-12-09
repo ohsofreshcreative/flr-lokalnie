@@ -39,7 +39,7 @@ $sectionClass .= ' ' . $background;
 				@foreach ($speakers as $item)
 				<div class="__card-single grid grid-cols-1 md:grid-cols-2 gap-8 items-center border-p radius p-10">
 					<div class="img-wrapper">
-						<img src="{{ $item['img']['url'] }}" alt="{{ $item['img']['alt'] ?? '' }}" class="w-full h-auto radius" />
+						<img src="{{ $item['img']['url'] }}" alt="{{ $item['img']['alt'] ?? '' }}" class="w-full img-2xl object-cover object-top radius" />
 					</div>
 					<div class="content-wrapper">
 						<p class="font-bold text-h5 text-white !mb-0">{{ $item['title'] }}</p>
@@ -50,9 +50,9 @@ $sectionClass .= ' ' . $background;
 				@else
 				@foreach ($speakers as $item)
 				<div class="__card relative border-p radius p-10">
-					<img src="{{ $item['img']['url'] }}" alt="{{ $item['img']['alt'] ?? '' }}" class="w-full h-auto radius" />
+					<img src="{{ $item['img']['url'] }}" alt="{{ $item['img']['alt'] ?? '' }}" class="w-full img-s object-cover object-top radius" />
 					<p class="font-bold text-h5 text-white mt-6 mb-4">{{ $item['title'] }}</p>
-					<p class="text-white">{{ $item['txt'] }}</p>
+					<p class="text-white">{!! $item['txt'] !!}</p>
 				</div>
 				@endforeach
 				@endif

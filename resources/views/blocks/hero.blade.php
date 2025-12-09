@@ -48,7 +48,7 @@ $sectionClass .= ' ' . $background;
 
 	@if (!empty($g_hero['image']))
 	<div data-gsap-element="img" class="__img order1 mt-20">
-		<img class="object-cover w-full __img img-3xl radius-img" src="{{ $g_hero['image']['url'] }}" alt="{{ $g_hero['image']['alt'] ?? '' }}">
+		<img class="object-cover w-full __img img-2xl radius-img" src="{{ $g_hero['image']['url'] }}" alt="{{ $g_hero['image']['alt'] ?? '' }}">
 	</div>
 	@endif
 

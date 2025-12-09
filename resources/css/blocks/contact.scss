@@ -83,7 +83,7 @@
   input[type='submit'] {
     font-family: var(--btns-font);
     font-size: var(--btns-fontsize);
-    background: var(--secondary) !important;
+    background: var(--primary) !important;
     color: #fff;
     padding: var(--btns-padding);
     display: inline-block;
@@ -98,7 +98,7 @@
   }
 
   input[type='submit']:hover {
-    background: var(--s-hover) !important;
+    background: var(--p-hover) !important;
     color: #fff;
     transition: all 0.2s ease-out;
     border: 1px solid transparent;

@@ -20,7 +20,7 @@ $sectionClass .= ' ' . $background;
 
 			<div class="__top">
 				@if (!empty($g_workshops['subtitle']))
-				<p data-gsap-element="subtitle" class="subtitle-s">{{ $g_workshops['subtitle'] }}</p>
+				<p data-gsap-element="subtitle" class="subtitle-p">{{ $g_workshops['subtitle'] }}</p>
 				@endif
 				<h2 data-gsap-element="header" class="text-white m-header">{{ $g_workshops['title'] }}</h2>
 			</div>

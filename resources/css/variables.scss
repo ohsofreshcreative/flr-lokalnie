@@ -60,7 +60,7 @@
 }
 
 ::selection {
-	background: var(--s-300);
+	background: var(--p-100);
 	color: var(--primary);
 }
 
@@ -654,6 +654,10 @@ h6,
 
 .b-bottom-p {
 	border-bottom: 1px solid var(--border-p) !important;
+}
+
+.b-border-l {
+	border-left: 1px solid var(--border-p) !important;
 }
 
 .b-shadow {
@@ -1400,9 +1404,15 @@ article.post:hover img {
 	width: 100% !important;
 }
 
+
 .single-product {
 	.woocommerce-product-details__short-description {
 		color: #FFF;
+
+		h1, h2, h3, h4, h5, h6 {
+			color: var(--p-500);
+			margin-bottom:16px;
+		}
 
 		p {
 			margin-bottom: 16px;
@@ -1411,6 +1421,8 @@ article.post:hover img {
 		p b,
 		p strong {
 			color: var(--p-500);
+			margin-bottom:8px;
+			display: block;
 		}
 
 		ul {

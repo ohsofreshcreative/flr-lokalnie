@@ -74,8 +74,8 @@ $wrapper_classes   = apply_filters(
 		<div>
 			<h5 class="text-white b-bottom-p w-max mb-2">Organizatorzy</h5>
 			<div class="__logos flex flex-wrap items-center gap-4 mt-4">
-				<div class="__img"><img src="https://infu.pl/wp-content/uploads/2024/11/ptpi.svg" alt="PTPI" /></div>
-				<div class="__img"><img src="https://infu.pl/wp-content/uploads/2024/11/eve.svg" alt="EVE" /></div>
+				<div class="__img"><img src="/wp-content/uploads/2025/12/snlr_color-1.png" alt="PTPI" /></div>
+				<div class="__img"><img src="/wp-content/uploads/2025/12/eve.svg" alt="EVE" /></div>
 				<?php if (get_field('partner')) : ?>
 					<div class="__img"><img src="<?php the_field('partner'); ?>" alt="Partner" /></div>
 				<?php endif; ?>

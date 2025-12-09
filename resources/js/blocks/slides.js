@@ -13,37 +13,33 @@ document.addEventListener('DOMContentLoaded', () => {
       new Swiper(container, {
         modules: [Navigation, Autoplay, Pagination],
 
-        // Blokada przesuwania palcem/myszką
+        loop: false,    
+        rewind: false,      
+        slidesPerGroup: 1,   
+        
         allowTouchMove: false,
-
-        slidesPerView: 1.2, // Dla urządzeń mobilnych
-        spaceBetween: 20,
-        loop: true,
-        speed: 2000,
-        loopAdditionalSlides: 1,
-        slidesPerGroup: 1,
-
-
+        speed: 1000,
+        
         pagination: {
           el: container.querySelector('.swiper-pagination'),
           clickable: true,
         },
         navigation: {
-          nextEl: '.swiper-button-next', // Użyj globalnych selektorów
-          prevEl: '.swiper-button-prev', // Użyj globalnych selektorów
+          nextEl: '.__next',
+          prevEl: '.__prev',
         },
         breakpoints: {
-          // dla ekranów >= 768px
+          0: {
+            slidesPerView: 1.2,
+            spaceBetween: 20,
+          },
           768: {
             slidesPerView: 2,
             spaceBetween: 30,
-            centeredSlides: false,
           },
-          // dla ekranów >= 1024px
           1024: {
             slidesPerView: 3,
             spaceBetween: 30,
-            centeredSlides: false,
           },
         },
       });

@@ -28,8 +28,8 @@ $sectionClass .= ' ' . $background;
 					<img src="{{ $item['img']['url'] }}" alt="{{ $item['img']['alt'] ?? '' }}" />
 					@endif
 					<p class="font-bold text-h2">{!! $item['number'] !!}</p>
-					<p class="font-bold text-h5">{{ $item['header'] }}</p>
-					<p class="text-lg mt-6">{!! $item['txt'] !!}</p>
+					<p class="font-bold text-h5 min-h-16">{{ $item['header'] }}</p>
+					<p class="text-lg mt-2">{!! $item['txt'] !!}</p>
 				</div>
 				@endforeach
 			</div>

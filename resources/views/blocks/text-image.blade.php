@@ -33,7 +33,7 @@ $sectionClass .= ' ' . $background;
 				</div>
 
 				@if (!empty($g_textimg['button']))
-				<a data-gsap-element="btn" class="second-btn m-btn" href="{{ $g_textimg['button']['url'] }}" target="{{ $g_textimg['button']['target'] }}">{{ $g_textimg['button']['title'] }}</a>
+				<a data-gsap-element="btn" class="main-btn m-btn" href="{{ $g_textimg['button']['url'] }}" target="{{ $g_textimg['button']['target'] }}">{{ $g_textimg['button']['title'] }}</a>
 				@endif
 
 			</div>
