@@ -2,7 +2,6 @@
 
 namespace App;
 
-/*----
 
 // 1. Usuń domyślny tytuł produktu
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
@@ -10,11 +9,12 @@ remove_action('woocommerce_single_product_summary', 'woocommerce_template_single
 // 2. Dodaj własny szablon tytułu, przekazując mu dane z ACF
 add_action('woocommerce_single_product_summary', function () {
 	echo \Roots\view('woocommerce.single-product.custom-title', [
+		'custom_city' => get_field('event_city'),
 		'custom_text' => get_field('event_date'), // Używamy pola z datą wydarzenia
 		'certificate_link' => get_field('cert-link'),
 		'certificate_img' => get_field('cert-img'),
 	])->render();
-}, 5); ----*/
+}, 5); 
 
 
 /**
