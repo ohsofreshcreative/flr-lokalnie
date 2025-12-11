@@ -64,14 +64,18 @@ $wrapper_classes   = apply_filters(
 			</div>
 		<?php endif; ?>
 
-		<?php if (get_field('event_date')) : ?>
-			<div>
+		 <?php
+        $event_date_raw = get_field('event_date');
+        if ($event_date_raw) :
+            $event_date = date_i18n('j F Y', strtotime($event_date_raw));
+        ?>
+			<div class="b-border-t b-dashed pt-4">
 				<h5 class="text-white b-bottom-p w-max mb-2">Termin</h5>
-				<p class="text-white"><?php the_field('event_date'); ?></p>
+				<p class="text-white"><?php echo esc_html($event_date); ?></p>
 			</div>
 		<?php endif; ?>
 
-		<div>
+		<div class="b-border-t b-dashed pt-4">
 			<h5 class="text-white b-bottom-p w-max mb-2">Organizatorzy</h5>
 			<div class="__logos flex flex-wrap items-center gap-4 mt-4">
 				<div class="__img"><img src="/wp-content/uploads/2025/12/snlr_color-1.png" alt="PTPI" /></div>
