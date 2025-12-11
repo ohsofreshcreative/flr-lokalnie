@@ -26,7 +26,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 <?php
 // Inicjalizacja zmiennych na dane wydarzenia
-$event_name = '';
+
 $event_date = '';
 $event_place = '';
 $event_city = '';
@@ -44,7 +44,7 @@ if ( ! empty( $items ) ) {
         $product_id = $product->get_id();
         
         // Pobierz dane z pól ACF na podstawie ID produktu
-        $event_name = $product->get_name();
+     
         $event_date_raw = get_field('event_date', $product_id); // Format Ymd
         $event_place = get_field('miejsce', $product_id);
         $event_city = get_field('city', $product_id);
@@ -63,7 +63,7 @@ if ( ! empty( $items ) ) {
 }
 ?>
 
-<p>bardzo dziękujemy za rejestrację na warsztaty <?php echo esc_html( $event_name ); ?>, które odbędą się w dniu <?php echo esc_html( $event_date ); ?> w <?php echo esc_html( $event_place ); ?> w <?php echo esc_html( $event_city ); ?>. <b>Twoje zgłoszenie zostało przyjęte.</b></p>
+<p>bardzo dziękujemy za rejestrację na warsztaty FLR Lokalnie, które odbędą się w dniu <?php echo esc_html( $event_date ); ?> w <?php echo esc_html( $event_place ); ?> w <?php echo esc_html( $event_city ); ?>. <b>Twoje zgłoszenie zostało przyjęte.</b></p>
 
 
 <p>Status Twojej rejestracji na warsztaty został zmieniony na:
