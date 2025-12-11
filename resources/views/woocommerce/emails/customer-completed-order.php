@@ -24,22 +24,58 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
-<p>Ta wiadomość jest generowana automatycznie, prosimy na nią nie odpowiadać</p>
+<?php
+// Inicjalizacja zmiennych na dane wydarzenia
+$event_name = '';
+$event_date = '';
+$event_place = '';
+$event_city = '';
 
-<p>Dzień dobry,</p>
+// Pobierz produkty z zamówienia
+$items = $order->get_items();
 
-<p>bardzo dziękujemy za rejestrację na konferencję VI Forum Zakażeń, która odbędzie się w dniach 13-15 maja 2026 r. w Hotelu Windsor w Jachrance. <b>Twoje zgłoszenie zostało przyjęte.</b></p>
+// Sprawdź, czy są produkty w zamówieniu
+if ( ! empty( $items ) ) {
+    // Pobierz pierwszy produkt z zamówienia
+    $item = array_shift( $items );
+    $product = $item->get_product();
 
-<p>Status Twojej rejestracji na konferencję VI FZ został zmieniony na:
+    if ( $product ) {
+        $product_id = $product->get_id();
+        
+        // Pobierz dane z pól ACF na podstawie ID produktu
+        $event_name = $product->get_name();
+        $event_date_raw = get_field('event_date', $product_id); // Format Ymd
+        $event_place = get_field('miejsce', $product_id);
+        $event_city = get_field('city', $product_id);
+
+        // Sformatuj datę do czytelnej formy, np. "13-15 maja 2026"
+        // Ta część może wymagać dostosowania, jeśli masz pole na datę końcową
+        if($event_date_raw) {
+            $date_obj = date_create_from_format('Ymd', $event_date_raw);
+            if ($date_obj) {
+                // Ustawienie polskiej lokalizacji dla nazw miesięcy
+                setlocale(LC_TIME, 'pl_PL.UTF-8');
+                $event_date = strftime('%e %B %Y', $date_obj->getTimestamp());
+            }
+        }
+    }
+}
+?>
+
+<p>bardzo dziękujemy za rejestrację na warsztaty <?php echo esc_html( $event_name ); ?>, które odbędą się w dniu <?php echo esc_html( $event_date ); ?> w <?php echo esc_html( $event_place ); ?> w <?php echo esc_html( $event_city ); ?>. <b>Twoje zgłoszenie zostało przyjęte.</b></p>
+
+
+<p>Status Twojej rejestracji na warsztaty został zmieniony na:
 
 <span style="color:#36d100;">OPŁACONY</span></p>
 
-<b>Dziękujemy, że będziesz z nami podczas konferencji!</b><br>
+<b>Dziękujemy, że będziesz z nami podczas warsztatów!</b><br>
 
-<p>Więcej informacji o konferencji znajdziesz tutaj:<br>
-forumzakazen.coml<br><br>
+<p>Więcej informacji o warsztatach znajdziesz tutaj:<br>
+fpalokanie.pl<br><br>
 Serdecznie pozdrawiamy<br>
-Organizatorzy konferencji</p>
+Organizatorzy warsztatów</p>
 
 <?php
 
