@@ -32,3 +32,18 @@
 		margin-bottom: 24px !important;
 	}
 }
+
+.b-text.s-program {
+	.__content {
+		width:65%;
+	}
+}
+
+/*---- MD --*/
+@media only screen and (max-width: 768px) {
+	.b-text.s-program {
+		.__content {
+			width:100%;
+		}
+	}
+}

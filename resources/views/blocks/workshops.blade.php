@@ -26,10 +26,10 @@ $sectionClass .= ' ' . $background;
 			</div>
 
 			<div class="__content flex mt-8">
-				<div data-gsap-element="txt" class="__txt text-white w-full md:w-1/3 b-border-l pl-6">
+				<div data-gsap-element="txt" class="__txt text-white w-full md:w-1/3 b-border-l px-6">
 					{!! $g_workshops['text1'] !!}
 				</div>
-				<div data-gsap-element="txt" class="__txt text-white w-full md:w-1/3 b-border-l pl-6">
+				<div data-gsap-element="txt" class="__txt text-white w-full md:w-1/3 b-border-l px-6">
 					{!! $g_workshops['text2'] !!}
 				</div>
 

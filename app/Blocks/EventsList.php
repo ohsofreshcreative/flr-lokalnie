@@ -179,14 +179,24 @@ class EventsList extends Block
         ];
 
         // Sortowanie po dacie wydarzenia (z pola ACF 'data') lub po dacie publikacji
-        if ($orderByDate && get_field('data')) { // Dodano sprawdzenie, czy pole 'data' istnieje
-            $args['meta_key'] = 'data';
-            $args['orderby'] = 'meta_value';
-            $args['order'] = 'ASC'; // Rosnąco, od najbliższego wydarzenia
-        } else {
-            $args['orderby'] = 'date';
-            $args['order'] = 'DESC'; // Malejąco, od najnowszego
-        }
+         if ($category) {
+        $args['tax_query'] = [
+            [
+                'taxonomy' => 'product_cat',
+                'field'    => 'term_id',
+                'terms'    => $category,
+            ],
+        ];
+    }
+
+    if ($orderByDate) {
+        $args['meta_key'] = 'event_date';
+        $args['orderby']  = 'meta_value';
+        $args['order']    = 'ASC';
+    } else {
+        $args['orderby'] = 'date';
+        $args['order']   = 'DESC';
+    }
         
         return new WP_Query($args);
     }
