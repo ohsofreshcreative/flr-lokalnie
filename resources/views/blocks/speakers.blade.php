@@ -48,13 +48,13 @@ $sectionClass .= ' ' . $background;
 				</div>
 				@endforeach
 				@else
-				@foreach ($speakers as $item)
-				<div class="__card relative border-p radius p-10">
-					<img src="{{ $item['img']['url'] }}" alt="{{ $item['img']['alt'] ?? '' }}" class="w-full img-s object-cover object-top radius" />
-					<p class="font-bold text-h5 text-white mt-6 mb-4">{{ $item['title'] }}</p>
-					<p class="text-white">{!! $item['txt'] !!}</p>
-				</div>
-				@endforeach
+			 @foreach ($speakers as $item)
+                <div class="__card relative border-p radius p-10">
+                    <img src="{{ $item['img']['url'] }}" alt="{{ $item['img']['alt'] ?? '' }}" class="w-full {{ $speakersCount === 2 ? 'img-m' : 'img-s' }} object-cover object-top radius" />
+                    <p class="font-bold text-h5 text-white mt-6 mb-4">{{ $item['title'] }}</p>
+                    <p class="text-white">{!! $item['txt'] !!}</p>
+                </div>
+                @endforeach
 				@endif
 			</div>
 
