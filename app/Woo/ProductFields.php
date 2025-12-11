@@ -2,11 +2,7 @@
 
 namespace App;
 
-/**
- * -------------------------------------------------------------------------
- * SEKCJA 2: MODYFIKACJE WYGLĄDU STRONY PRODUKTU
- * -------------------------------------------------------------------------
- */
+/*----
 
 // 1. Usuń domyślny tytuł produktu
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
@@ -18,7 +14,7 @@ add_action('woocommerce_single_product_summary', function () {
 		'certificate_link' => get_field('cert-link'),
 		'certificate_img' => get_field('cert-img'),
 	])->render();
-}, 5);
+}, 5); ----*/
 
 
 /**
@@ -49,6 +45,13 @@ add_action('acf/init', function () {
 				'instructions' => 'Data pojawi się pod tytułem produktu.',
 				'display_format' => 'd F Y',
 				'return_format' => 'Ymd',
+			],
+			[
+				'key' => 'field_event_city',
+				'label' => 'Miejscowość wydarzenia',
+				'name' => 'city',
+				'type' => 'text',
+				'instructions' => 'Podaj miasto',
 			],
 			[
 				'key' => 'field_event_place',

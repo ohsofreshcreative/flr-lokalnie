@@ -64,6 +64,8 @@ $sectionClass .= ' ' . $background;
 					$event_date_raw = get_field('event_date', get_the_ID());
 					$event_date = $event_date_raw ? date_i18n('d F Y', strtotime($event_date_raw)) : null;
 
+					$event_city = get_field('city', get_the_ID());
+
 					$program_url = get_field('programis', get_the_ID());
 					$is_registration_open = get_field('is_registration_open', get_the_ID());
 					$register_url = $is_registration_open ? get_the_permalink() : null;
@@ -74,7 +76,7 @@ $sectionClass .= ' ' . $background;
 							<div class="news__image">
 								<img src="/wp-content/uploads/2025/12/Callendar.svg" alt="Kalendarz" />
 							</div>
-							<h5 class="">{{ get_the_title() }}</h5>
+							<h5 class="">{{ $event_city }}</h5>
 						</div>
 
 						@if($event_date)

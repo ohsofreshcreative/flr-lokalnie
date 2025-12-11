@@ -1404,8 +1404,13 @@ article.post:hover img {
 	width: 100% !important;
 }
 
-
 .single-product {
+	.product_title {
+		color:#FFF;
+		font-size:40px !important;
+		line-height: 1.3em;
+		margin-bottom:16px;
+	}
 	.woocommerce-product-details__short-description {
 		color: #FFF;
 
