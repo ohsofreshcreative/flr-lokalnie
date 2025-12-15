@@ -63,6 +63,10 @@ if ( ! empty( $items ) ) {
 }
 ?>
 
+<b>Ta wiadomość jest generowana automatycznie, prosimy na nią nie odpowiadać</b><br>
+
+<p>Dzień dobry,</p>
+
 <p>bardzo dziękujemy za rejestrację na warsztaty FLR Lokalnie, które odbędą się w dniu <?php echo esc_html( $event_date ); ?> w <?php echo esc_html( $event_place ); ?> w <?php echo esc_html( $event_city ); ?>. <b>Twoje zgłoszenie zostało przyjęte.</b></p>
 
 
@@ -73,7 +77,7 @@ if ( ! empty( $items ) ) {
 <b>Dziękujemy, że będziesz z nami podczas warsztatów!</b><br>
 
 <p>Więcej informacji o warsztatach znajdziesz tutaj:<br>
-fpalokanie.pl<br><br>
+flrlokanie.pl<br><br>
 Serdecznie pozdrawiamy<br>
 Organizatorzy warsztatów</p>
 
