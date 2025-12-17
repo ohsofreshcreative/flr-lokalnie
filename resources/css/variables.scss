@@ -1454,8 +1454,7 @@ article.post:hover img {
 
 /*--- !CHECKOUT ---*/
 
-#payment>ul>li.wc_payment_method.payment_method_payulistbanks>label>img,
-#payment>ul>li.wc_payment_method.payment_method_payucreditcard>label>img {
+#add_payment_method #payment ul.payment_methods li img, .woocommerce-cart #payment ul.payment_methods li img, .woocommerce-checkout #payment ul.payment_methods li img {
 	filter: invert(1) grayscale(1);
 	margin: -7px 0 0 0.5em;
 	display: inline-block;
