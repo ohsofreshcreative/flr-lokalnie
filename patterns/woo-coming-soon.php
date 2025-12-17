@@ -12,7 +12,7 @@
   <!-- wp:group {"layout":{"type":"constrained"}} -->
   <div class="wp-block-group" style="text-align:center;max-width:800px">
     <!-- wp:site-logo {"width":120} /-->
-	<img src="{{ $logo['url'] }}" />
+<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? 'Logo' }}" class="w-auto h-12">
     <!-- wp:heading {"level":1, "style":{"color":{"text":"#ffffff"}}} -->
     <h1 class="wp-block-heading" style="color:#FFF">Wracamy wkrótce!</h1>
     <!-- /wp:heading -->
