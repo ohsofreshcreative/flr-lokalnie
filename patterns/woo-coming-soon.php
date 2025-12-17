@@ -8,7 +8,7 @@
 ?>
 
 <!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group" style="min-height:100vh;display:grid;place-items:center;padding:48px;background-color:#025;">
+<div class="wp-block-group" style="min-height:100vh;display:grid;place-items:center;padding:48px;background-color:var(--bg);">
   <!-- wp:group {"layout":{"type":"constrained"}} -->
   <div class="wp-block-group" style="text-align:center;max-width:800px">
     <!-- wp:site-logo {"width":120} /-->
