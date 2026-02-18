@@ -123,3 +123,10 @@ add_filter('woocommerce_get_price_html', function ($price_html, $product) {
     // Na wszystkich innych stronach zwracamy cenę bez zmian.
     return $price_html;
 }, 10, 2);
+
+/*--- CHANGE EMAIL FIELD PLACEHOLDER ---*/
+
+add_filter('woocommerce_checkout_fields', function ($fields) {
+    $fields['billing']['billing_email']['placeholder'] = 'na ten adres zostanie przesłane potwierdzenie rejestracji oraz faktura';
+    return $fields;
+});
