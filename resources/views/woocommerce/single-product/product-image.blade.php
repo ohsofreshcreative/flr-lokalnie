@@ -75,16 +75,30 @@ $wrapper_classes   = apply_filters(
 			</div>
 		<?php endif; ?>
 
-		<div class="b-border-t b-dashed pt-4">
+		<div>
 			<h5 class="text-white b-bottom-p w-max mb-2">Organizatorzy</h5>
 			<div class="__logos flex flex-wrap items-center gap-4 mt-4">
-				<div class="__img"><img src="/wp-content/uploads/2025/12/snlr_color-1.png" alt="PTPI" /></div>
+				<div class="__img"><img src="/wp-content/uploads/2025/12/kait.svg" /></div>
 				<div class="__img"><img src="/wp-content/uploads/2025/12/eve.svg" alt="EVE" /></div>
 				<?php if (get_field('partner')) : ?>
 					<div class="__img"><img src="<?php the_field('partner'); ?>" alt="Partner" /></div>
 				<?php endif; ?>
 			</div>
 		</div>
+
+        <?php if (have_rows('honorary_patrons')) : ?>
+            <div class="mt-4">
+                <h5 class="text-white b-bottom-p w-max mb-2">Patroni honorowi</h5>
+                <div class="__logos flex flex-wrap items-center gap-4 mt-4">
+                    <?php while (have_rows('honorary_patrons')) : the_row(); ?>
+                        <?php $logo = get_sub_field('honorary_patron_logo'); ?>
+                        <?php if ($logo) : ?>
+                            <div class="__img"><img src="<?php echo esc_url($logo); ?>" alt="Logo patrona honorowego" /></div>
+                        <?php endif; ?>
+                    <?php endwhile; ?>
+                </div>
+            </div>
+        <?php endif; ?>
 	</div>
 
 
