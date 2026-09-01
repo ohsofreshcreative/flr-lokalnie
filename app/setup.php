@@ -14,10 +14,12 @@ use Illuminate\Support\Facades\Vite;
  * @return array
  */
 add_filter('block_editor_settings_all', function ($settings) {
-	$style = Vite::asset('resources/css/editor.css');
-
+	// Wczytujemy CSS jako string (nie @import url()) — WP przepuszcza każdy
+	// wpis 'styles' przez PostCSS, żeby przeskalować selektory pod
+	// .editor-styles-wrapper, a @import w tym kontekście potrafi się cicho
+	// wykrzaczyć (tylko console.warn), zabijając cały blok stylów.
 	$settings['styles'][] = [
-		'css' => "@import url('{$style}')",
+		'css' => Vite::content('resources/css/editor.css'),
 	];
 
 	return $settings;
