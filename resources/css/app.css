@@ -27,7 +27,7 @@
 @import '../css/blocks/text.scss';
 @import '../css/blocks/tailored.scss';
 @import '../css/blocks/workshops.scss';
-@import '../css/blocks/contact.scss';
+@import '../css/blocks/contact.scss'; 
 
 /*-- NOT USED --*/
 @import '../css/blocks/counter.scss';
